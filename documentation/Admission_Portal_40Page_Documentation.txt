@@ -1,0 +1,1201 @@
+================================================================================
+                    UNIVERSITY ADMISSION PORTAL
+                   COMPLETE CODE DOCUMENTATION
+                         (40 Pages)
+================================================================================
+
+Document Generated: November 25, 2025
+Total Pages: 40
+Format: Ready for Microsoft Word
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+Page  1: Title Page & Table of Contents
+Page  2: System Overview & Architecture
+Page  3: Configuration Files - Main Config
+Page  4: Configuration Files - Grading Config
+Page  5: Configuration Files - Database Config
+Page  6: Authentication System - Auth Class (Part 1)
+Page  7: Authentication System - Auth Class (Part 2)
+Page  8: Authentication System - Helper Functions
+Page  9: Session Management System
+Page 10: Security Implementation - Password Hashing
+Page 11: Security Implementation - Input Validation
+Page 12: Security Implementation - XSS Prevention
+Page 13: Test Results System - TestResults Class (Part 1)
+Page 14: Test Results System - TestResults Class (Part 2)
+Page 15: Test Results System - Score Calculation
+Page 16: Test Results System - Rating Determination
+Page 17: Student Management - Search Functionality
+Page 18: Student Management - Password Management
+Page 19: Student Management - Email Management
+Page 20: Student Management - Status Management
+Page 21: Student Test Results View - Display Logic
+Page 22: Student Test Results View - Real-time Calculation
+Page 23: Admin Dashboard - Overview
+Page 24: Admin Dashboard - Statistics
+Page 25: Main Landing Page - Hero Section
+Page 26: Main Landing Page - Course Display
+Page 27: Database Schema - Students Table
+Page 28: Database Schema - Test Results Table
+Page 29: Database Schema - Test Permits Table
+Page 30: Database Schema - Requirements Table
+Page 31: Database Schema - Admission Forms Table
+Page 32: Database Schema - Admins Table
+Page 33: API Endpoints - Authentication
+Page 34: API Endpoints - Student Operations
+Page 35: API Endpoints - Admin Operations
+Page 36: Deployment Guide - Server Setup
+Page 37: Deployment Guide - Configuration
+Page 38: Troubleshooting Guide - Common Issues
+Page 39: Troubleshooting Guide - Debugging Code
+Page 40: Appendix - Function Reference
+
+================================================================================
+PAGE 1: TITLE PAGE & TABLE OF CONTENTS
+================================================================================
+
+                    UNIVERSITY ADMISSION PORTAL
+                   COMPLETE CODE DOCUMENTATION
+                         (40 Pages)
+
+================================================================================
+SYSTEM OVERVIEW & ARCHITECTURE
+================================================================================
+
+The University Admission Portal is a comprehensive web-based system designed to manage
+student applications, test results, and administrative tasks for university admissions.
+
+SYSTEM ARCHITECTURE:
+
+1. FRONTEND LAYER
+   - Bootstrap 5 for responsive UI design
+   - Font Awesome for icons
+   - Custom CSS for styling
+   - jQuery for JavaScript interactions
+   - Chart.js for data visualization
+
+2. BACKEND LAYER
+   - PHP 7.4+ for server-side logic
+   - PDO for database operations
+   - Session-based authentication
+   - Object-oriented programming approach
+   - MVC-like structure
+
+3. DATABASE LAYER
+   - MySQL/MariaDB database
+   - Normalized table structure
+   - Foreign key relationships
+   - Indexing for performance
+
+4. SECURITY LAYER
+   - Password hashing with bcrypt
+   - SQL injection prevention
+   - XSS protection
+   - CSRF protection
+   - Input validation
+
+5. FILE MANAGEMENT
+   - Secure file uploads
+   - Document management
+   - Image processing
+   - File type validation
+
+KEY FEATURES:
+- Online student registration
+- Test result management
+- Document submission
+- Admin dashboard
+- Student portal
+- Search functionality
+- Reporting system
+
+================================================================================
+PAGE 2: CONFIGURATION FILES - MAIN CONFIG
+================================================================================
+
+File: config/config.php
+Purpose: Main configuration file for the entire system
+
+<?php
+/**
+ * Main Configuration File
+ * Contains all system-wide settings
+ */
+
+// SITE CONFIGURATION
+define('SITE_NAME', 'University Admission Portal');
+define('SITE_URL', 'http://localhost/Admission Portal');
+define('ADMIN_EMAIL', 'admin@university.edu');
+define('SUPPORT_EMAIL', 'support@university.edu');
+
+// DATABASE CONFIGURATION
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'admission_portal');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
+define('DB_COLLATE', 'utf8mb4_unicode_ci');
+
+// SECURITY CONFIGURATION
+define('PASSWORD_MIN_LENGTH', 8);
+define('PASSWORD_MAX_LENGTH', 50);
+define('SESSION_LIFETIME', 3600); // 1 hour
+define('MAX_LOGIN_ATTEMPTS', 5);
+define('LOGIN_LOCKOUT_TIME', 900); // 15 minutes
+
+// UPLOAD CONFIGURATION
+define('MAX_FILE_SIZE', 5242880); // 5MB
+define('ALLOWED_FILE_TYPES', ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png']);
+define('UPLOAD_PATH', '../uploads/');
+define('THUMBNAIL_PATH', '../uploads/thumbnails/');
+
+// EMAIL CONFIGURATION
+define('SMTP_HOST', 'smtp.gmail.com');
+define('SMTP_PORT', 587);
+define('SMTP_USERNAME', '');
+define('SMTP_PASSWORD', '');
+define('SMTP_ENCRYPTION', 'tls');
+define('EMAIL_FROM', 'noreply@university.edu');
+define('EMAIL_FROM_NAME', 'Admission Portal');
+
+// SYSTEM CONFIGURATION
+define('TIMEZONE', 'Asia/Manila');
+define('DEFAULT_DATE_FORMAT', 'Y-m-d');
+define('DEFAULT_TIME_FORMAT', 'H:i:s');
+define('DEFAULT_DATETIME_FORMAT', 'Y-m-d H:i:s');
+
+// PAGINATION CONFIGURATION
+define('ITEMS_PER_PAGE', 10);
+define('MAX_ITEMS_PER_PAGE', 100);
+
+// CACHE CONFIGURATION
+define('CACHE_ENABLED', true);
+define('CACHE_LIFETIME', 3600); // 1 hour
+
+// DEBUG CONFIGURATION
+define('DEBUG_MODE', false);
+define('ERROR_LOG_PATH', '../logs/errors.log');
+define('ACCESS_LOG_PATH', '../logs/access.log');
+
+// NOTIFICATION CONFIGURATION
+define('NOTIFICATION_EMAIL_ENABLED', true);
+define('NOTIFICATION_SMS_ENABLED', false);
+
+// BACKUP CONFIGURATION
+define('BACKUP_ENABLED', true);
+define('BACKUP_PATH', '../backups/');
+define('BACKUP_RETENTION_DAYS', 30);
+
+// MAINTENANCE CONFIGURATION
+define('MAINTENANCE_MODE', false);
+define('MAINTENANCE_MESSAGE', 'System is under maintenance. Please try again later.');
+
+// RATE LIMITING
+define('RATE_LIMIT_ENABLED', true);
+define('RATE_LIMIT_REQUESTS', 100);
+define('RATE_LIMIT_WINDOW', 3600); // 1 hour
+
+// API CONFIGURATION
+define('API_VERSION', 'v1');
+define('API_RATE_LIMIT', 1000);
+define('API_TIMEOUT', 30);
+
+// FEATURE FLAGS
+define('ENABLE_REGISTRATION', true);
+define('ENABLE_PASSWORD_RESET', true);
+define('ENABLE_EMAIL_VERIFICATION', true);
+define('ENABLE_TWO_FACTOR_AUTH', false);
+
+// Set timezone
+date_default_timezone_set(TIMEZONE);
+
+// Error reporting based on debug mode
+if (DEBUG_MODE) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    ini_set('error_log', ERROR_LOG_PATH);
+}
+
+// Session configuration
+ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_secure', isset($_SERVER['HTTPS']));
+ini_set('session.use_strict_mode', 1);
+ini_set('session.gc_maxlifetime', SESSION_LIFETIME);
+
+// Upload configuration
+ini_set('upload_max_filesize', MAX_FILE_SIZE);
+ini_set('post_max_size', MAX_FILE_SIZE * 2);
+ini_set('max_execution_time', 300);
+
+// Memory limit
+ini_set('memory_limit', '256M');
+
+/**
+ * Get database connection
+ * @return PDO
+ */
+function getDB() {
+    static $db = null;
+    
+    if ($db === null) {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_PERSISTENT => true
+            ];
+            
+            $db = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            if (DEBUG_MODE) {
+                die("Database connection failed: " . $e->getMessage());
+            } else {
+                error_log("Database connection failed: " . $e->getMessage());
+                die("Database connection failed. Please try again later.");
+            }
+        }
+    }
+    
+    return $db;
+}
+
+/**
+ * Get system configuration as array
+ * @return array
+ */
+function getSystemConfig() {
+    return [
+        'site_name' => SITE_NAME,
+        'site_url' => SITE_URL,
+        'admin_email' => ADMIN_EMAIL,
+        'timezone' => TIMEZONE,
+        'version' => '1.0.0',
+        'debug_mode' => DEBUG_MODE,
+        'maintenance_mode' => MAINTENANCE_MODE
+    ];
+}
+
+/**
+ * Check if system is in maintenance mode
+ * @return bool
+ */
+function isMaintenanceMode() {
+    return MAINTENANCE_MODE;
+}
+
+/**
+ * Get upload path
+ * @return string
+ */
+function getUploadPath() {
+    return UPLOAD_PATH;
+}
+
+/**
+ * Get allowed file types
+ * @return array
+ */
+function getAllowedFileTypes() {
+    return ALLOWED_FILE_TYPES;
+}
+
+/**
+ * Get maximum file size
+ * @return int
+ */
+function getMaxFileSize() {
+    return MAX_FILE_SIZE;
+}
+?>
+
+================================================================================
+PAGE 3: CONFIGURATION FILES - GRADING CONFIG
+================================================================================
+
+File: config/grading_config.php
+Purpose: Grading system configuration and helper functions
+
+<?php
+/**
+ * Grading Configuration
+ * Contains all grading-related settings for the admission system
+ */
+
+// PASSING THRESHOLD FOR EXAM RATING
+define('PASSING_THRESHOLD', 75);
+
+// OVERALL RATING THRESHOLDS
+define('RATING_EXCELLENT_MIN', 90);
+define('RATING_VERY_GOOD_MIN', 85);
+define('RATING_PASSED_MIN', 75);
+define('RATING_CONDITIONAL_MIN', 70);
+
+// SUBJECT MAXIMUM SCORES
+define('MAX_GEN_INFO_SCORE', 30);
+define('MAX_FILIPINO_SCORE', 50);
+define('MAX_ENGLISH_SCORE', 60);
+define('MAX_SCIENCE_SCORE', 60);
+define('MAX_MATH_SCORE', 50);
+
+// TOTAL MAXIMUM SCORE
+define('TOTAL_MAX_SCORE', MAX_GEN_INFO_SCORE + MAX_FILIPINO_SCORE + 
+                         MAX_ENGLISH_SCORE + MAX_SCIENCE_SCORE + MAX_MATH_SCORE);
+
+// WEIGHT DISTRIBUTION
+define('EXAM_WEIGHT', 0.50);
+define('INTERVIEW_WEIGHT', 0.10);
+define('GWA_WEIGHT', 0.40);
+
+// TRANSMUTATION TABLES
+define('TRANSMUTION_TABLE_30', [
+    30 => 100, 29 => 99, 28 => 98, 27 => 97, 26 => 96, 25 => 95,
+    24 => 94, 23 => 93, 22 => 92, 21 => 91, 20 => 90, 19 => 89,
+    18 => 88, 17 => 87, 16 => 86, 15 => 85, 14 => 84, 13 => 83,
+    12 => 82, 11 => 81, 10 => 80, 9 => 79, 8 => 78, 7 => 77,
+    6 => 76, 5 => 75, 4 => 74, 3 => 73, 2 => 72, 1 => 71, 0 => 70
+]);
+
+define('TRANSMUTION_TABLE_50', [
+    50 => 100, 49 => 99, 48 => 98, 47 => 97, 46 => 96, 45 => 95,
+    44 => 94, 43 => 93, 42 => 92, 41 => 91, 40 => 90, 39 => 89,
+    38 => 88, 37 => 87, 36 => 86, 35 => 85, 34 => 84, 33 => 83,
+    32 => 82, 31 => 81, 30 => 80, 29 => 79, 28 => 78, 27 => 77,
+    26 => 76, 25 => 75, 24 => 74, 23 => 73, 22 => 72, 21 => 71,
+    20 => 70, 19 => 69, 18 => 68, 17 => 67, 16 => 66, 15 => 65,
+    14 => 64, 13 => 63, 12 => 62, 11 => 61, 10 => 60, 9 => 59,
+    8 => 58, 7 => 57, 6 => 56, 5 => 55, 4 => 54, 3 => 53,
+    2 => 52, 1 => 51, 0 => 50
+]);
+
+define('TRANSMUTION_TABLE_60', [
+    60 => 100, 59 => 99, 58 => 98, 57 => 97, 56 => 96, 55 => 95,
+    54 => 94, 53 => 93, 52 => 92, 51 => 91, 50 => 90, 49 => 89,
+    48 => 88, 47 => 87, 46 => 86, 45 => 85, 44 => 84, 43 => 83,
+    42 => 82, 41 => 81, 40 => 80, 39 => 79, 38 => 78, 37 => 77,
+    36 => 76, 35 => 75, 34 => 74, 33 => 73, 32 => 72, 31 => 71,
+    30 => 70, 29 => 69, 28 => 68, 27 => 67, 26 => 66, 25 => 65,
+    24 => 64, 23 => 63, 22 => 62, 21 => 61, 20 => 60, 19 => 59,
+    18 => 58, 17 => 57, 16 => 56, 15 => 55, 14 => 54, 13 => 53,
+    12 => 52, 11 => 51, 10 => 50, 9 => 49, 8 => 48, 7 => 47,
+    6 => 46, 5 => 45, 4 => 44, 3 => 43, 2 => 42, 1 => 41, 0 => 40
+]);
+
+// GRADE POINT EQUIVALENT
+define('GRADE_POINT_SCALE', [
+    'Excellent' => 4.0,
+    'Very Good' => 3.5,
+    'Passed' => 3.0,
+    'Conditional' => 2.5,
+    'Failed' => 2.0
+]);
+
+// RECOMMENDATION TEMPLATES
+define('RECOMMENDATION_TEMPLATES', [
+    'Excellent' => 'Outstanding performance! Highly recommended for immediate admission with honors consideration.',
+    'Very Good' => 'Very good performance! Recommended for admission without conditions.',
+    'Passed' => 'Meets minimum requirements for admission. Recommended for regular admission.',
+    'Conditional' => 'Conditional admission. Additional requirements may apply. Further evaluation recommended.',
+    'Failed' => 'Does not meet minimum requirements for admission. Recommendation: Retake examination after preparation.'
+]);
+
+/**
+ * Get transmutation table based on maximum score
+ * @param int $maxScore Maximum possible score
+ * @return array Transmutation table
+ */
+function getTransmutationTable($maxScore) {
+    switch ($maxScore) {
+        case 30:
+            return TRANSMUTION_TABLE_30;
+        case 50:
+            return TRANSMUTION_TABLE_50;
+        case 60:
+            return TRANSMUTION_TABLE_60;
+        default:
+            // Generate dynamic table if not predefined
+            $table = [];
+            for ($i = $maxScore; $i >= 0; $i--) {
+                $percentage = ($i / $maxScore) * 100;
+                $table[$i] = round($percentage);
+            }
+            return $table;
+    }
+}
+
+/**
+ * Transmute raw score to percentage
+ * @param float $rawScore Raw score
+ * @param int $maxScore Maximum possible score
+ * @return float Transmuted percentage
+ */
+function transmuteScore($rawScore, $maxScore) {
+    $table = getTransmutationTable($maxScore);
+    return $table[$rawScore] ?? 0;
+}
+
+/**
+ * Calculate weighted score
+ * @param float $transmutedScore Transmuted percentage
+ * @param float $weight Weight factor (0-1)
+ * @return float Weighted score
+ */
+function calculateWeightedScore($transmutedScore, $weight) {
+    return $transmutedScore * $weight;
+}
+
+/**
+ * Get overall rating based on exam rating
+ * @param float $examRating Exam rating (0-100)
+ * @return string Overall rating
+ */
+function getOverallRating($examRating) {
+    if ($examRating >= RATING_EXCELLENT_MIN) {
+        return 'Excellent';
+    } elseif ($examRating >= RATING_VERY_GOOD_MIN) {
+        return 'Very Good';
+    } elseif ($examRating >= PASSING_THRESHOLD) {
+        return 'Passed';
+    } elseif ($examRating >= RATING_CONDITIONAL_MIN) {
+        return 'Conditional';
+    } else {
+        return 'Failed';
+    }
+}
+
+/**
+ * Check if student passed based on exam rating
+ * @param float $examRating Exam rating (0-100)
+ * @return bool True if passed
+ */
+function hasPassed($examRating) {
+    return $examRating >= PASSING_THRESHOLD;
+}
+
+/**
+ * Get grade point equivalent for rating
+ * @param string $rating Overall rating
+ * @return float Grade point
+ */
+function getGradePoint($rating) {
+    return GRADE_POINT_SCALE[$rating] ?? 0;
+}
+
+/**
+ * Get recommendation based on rating
+ * @param string $rating Overall rating
+ * @return string Recommendation message
+ */
+function getRecommendation($rating) {
+    return RECOMMENDATION_TEMPLATES[$rating] ?? 'No recommendation available.';
+}
+
+/**
+ * Calculate percentage score
+ * @param float $totalRawScore Total raw score
+ * @param float $maxTotalScore Maximum total score
+ * @return float Percentage score
+ */
+function calculatePercentage($totalRawScore, $maxTotalScore = TOTAL_MAX_SCORE) {
+    return ($totalRawScore / $maxTotalScore) * 100;
+}
+
+/**
+ * Validate score within valid range
+ * @param float $score Score to validate
+ * @param float $maxScore Maximum possible score
+ * @return bool True if valid
+ */
+function isValidScore($score, $maxScore) {
+    return is_numeric($score) && $score >= 0 && $score <= $maxScore;
+}
+
+/**
+ * Get rating color for display
+ * @param string $rating Overall rating
+ * @return string Bootstrap color class
+ */
+function getRatingColor($rating) {
+    switch ($rating) {
+        case 'Excellent':
+            return 'success';
+        case 'Very Good':
+            return 'info';
+        case 'Passed':
+            return 'primary';
+        case 'Conditional':
+            return 'warning';
+        case 'Failed':
+            return 'danger';
+        default:
+            return 'secondary';
+    }
+}
+
+/**
+ * Get all rating categories
+ * @return array List of rating categories
+ */
+function getRatingCategories() {
+    return ['Excellent', 'Very Good', 'Passed', 'Conditional', 'Failed'];
+}
+
+/**
+ * Get rating thresholds
+ * @return array Rating thresholds
+ */
+function getRatingThresholds() {
+    return [
+        'Excellent' => RATING_EXCELLENT_MIN,
+        'Very Good' => RATING_VERY_GOOD_MIN,
+        'Passed' => PASSING_THRESHOLD,
+        'Conditional' => RATING_CONDITIONAL_MIN,
+        'Failed' => 0
+    ];
+}
+
+/**
+ * Format rating for display
+ * @param string $rating Overall rating
+ * @return string Formatted rating
+ */
+function formatRating($rating) {
+    return ucfirst(strtolower($rating));
+}
+
+/**
+ * Check if rating is passing
+ * @param string $rating Overall rating
+ * @return bool True if passing
+ */
+function isPassingRating($rating) {
+    return in_array($rating, ['Excellent', 'Very Good', 'Passed']);
+}
+?>
+
+================================================================================
+PAGE 4: CONFIGURATION FILES - DATABASE CONFIG
+================================================================================
+
+File: config/database.php
+Purpose: Database configuration and connection management
+
+<?php
+/**
+ * Database Configuration
+ * Handles database connections and operations
+ */
+
+// Database connection parameters
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'admission_portal');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
+define('DB_COLLATE', 'utf8mb4_unicode_ci');
+
+// Database options
+define('DB_PERSISTENT', true);
+define('DB_EMULATE_PREPARES', false);
+define('DB_FETCH_MODE', PDO::FETCH_ASSOC);
+define('DB_ERRMODE', PDO::ERRMODE_EXCEPTION);
+
+// Connection pool settings
+define('DB_MAX_CONNECTIONS', 10);
+define('DB_CONNECTION_TIMEOUT', 30);
+
+// Query settings
+define('DB_QUERY_TIMEOUT', 30);
+define('DB_MAX_QUERY_TIME', 60);
+
+// Backup settings
+define('DB_BACKUP_ENABLED', true);
+define('DB_BACKUP_PATH', '../backups/database/');
+define('DB_BACKUP_RETENTION', 30); // days
+
+/**
+ * Database Connection Class
+ * Manages database connections with connection pooling
+ */
+class DatabaseConnection {
+    private static $instance = null;
+    private $connections = [];
+    private $connectionCount = 0;
+    
+    /**
+     * Get singleton instance
+     * @return DatabaseConnection
+     */
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    
+    /**
+     * Get database connection
+     * @return PDO
+     */
+    public function getConnection() {
+        // Check if we have available connections
+        if ($this->connectionCount < DB_MAX_CONNECTIONS) {
+            return $this->createConnection();
+        }
+        
+        // Reuse existing connection
+        return $this->connections[0];
+    }
+    
+    /**
+     * Create new database connection
+     * @return PDO
+     */
+    private function createConnection() {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . 
+                   ";charset=" . DB_CHARSET;
+            
+            $options = [
+                PDO::ATTR_ERRMODE => DB_ERRMODE,
+                PDO::ATTR_DEFAULT_FETCH_MODE => DB_FETCH_MODE,
+                PDO::ATTR_EMULATE_PREPARES => DB_EMULATE_PREPARES,
+                PDO::ATTR_PERSISTENT => DB_PERSISTENT,
+                PDO::ATTR_TIMEOUT => DB_CONNECTION_TIMEOUT,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . DB_CHARSET . " COLLATE " . DB_COLLATE
+            ];
+            
+            $connection = new PDO($dsn, DB_USER, DB_PASS, $options);
+            
+            // Set query timeout
+            $connection->setAttribute(PDO::ATTR_TIMEOUT, DB_QUERY_TIMEOUT);
+            
+            $this->connections[] = $connection;
+            $this->connectionCount++;
+            
+            return $connection;
+        } catch (PDOException $e) {
+            throw new DatabaseException("Database connection failed: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Close all connections
+     */
+    public function closeConnections() {
+        foreach ($this->connections as $connection) {
+            $connection = null;
+        }
+        $this->connections = [];
+        $this->connectionCount = 0;
+    }
+}
+
+/**
+ * Database Query Builder Class
+ * Helps build SQL queries safely
+ */
+class QueryBuilder {
+    private $db;
+    private $table;
+    private $select = [];
+    private $where = [];
+    private $orderBy = [];
+    private $limit = null;
+    private $offset = null;
+    private $params = [];
+    
+    /**
+     * Constructor
+     * @param PDO $db Database connection
+     * @param string $table Table name
+     */
+    public function __construct($db, $table) {
+        $this->db = $db;
+        $this->table = $table;
+    }
+    
+    /**
+     * Select columns
+     * @param array $columns Columns to select
+     * @return self
+     */
+    public function select($columns = ['*']) {
+        $this->select = $columns;
+        return $this;
+    }
+    
+    /**
+     * Add where condition
+     * @param string $column Column name
+     * @param string $operator Operator (=, >, <, etc.)
+     * @param mixed $value Value
+     * @return self
+     */
+    public function where($column, $operator, $value) {
+        $this->where[] = "$column $operator ?";
+        $this->params[] = $value;
+        return $this;
+    }
+    
+    /**
+     * Add where in condition
+     * @param string $column Column name
+     * @param array $values Values
+     * @return self
+     */
+    public function whereIn($column, $values) {
+        $placeholders = str_repeat('?,', count($values) - 1) . '?';
+        $this->where[] = "$column IN ($placeholders)";
+        $this->params = array_merge($this->params, $values);
+        return $this;
+    }
+    
+    /**
+     * Add order by
+     * @param string $column Column name
+     * @param string $direction ASC or DESC
+     * @return self
+     */
+    public function orderBy($column, $direction = 'ASC') {
+        $this->orderBy[] = "$column $direction";
+        return $this;
+    }
+    
+    /**
+     * Set limit
+     * @param int $limit Limit
+     * @return self
+     */
+    public function limit($limit) {
+        $this->limit = $limit;
+        return $this;
+    }
+    
+    /**
+     * Set offset
+     * @param int $offset Offset
+     * @return self
+     */
+    public function offset($offset) {
+        $this->offset = $offset;
+        return $this;
+    }
+    
+    /**
+     * Build and execute query
+     * @return PDOStatement
+     */
+    public function execute() {
+        $sql = "SELECT " . implode(', ', $this->select) . " FROM {$this->table}";
+        
+        if (!empty($this->where)) {
+            $sql .= " WHERE " . implode(' AND ', $this->where);
+        }
+        
+        if (!empty($this->orderBy)) {
+            $sql .= " ORDER BY " . implode(', ', $this->orderBy);
+        }
+        
+        if ($this->limit !== null) {
+            $sql .= " LIMIT {$this->limit}";
+        }
+        
+        if ($this->offset !== null) {
+            $sql .= " OFFSET {$this->offset}";
+        }
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute($this->params);
+        
+        return $stmt;
+    }
+    
+    /**
+     * Get all results
+     * @return array
+     */
+    public function get() {
+        return $this->execute()->fetchAll();
+    }
+    
+    /**
+     * Get first result
+     * @return mixed
+     */
+    public function first() {
+        return $this->execute()->fetch();
+    }
+    
+    /**
+     * Count results
+     * @return int
+     */
+    public function count() {
+        $this->select = ['COUNT(*) as count'];
+        $result = $this->first();
+        return (int)$result['count'];
+    }
+}
+
+/**
+ * Database Exception Class
+ * Custom exception for database errors
+ */
+class DatabaseException extends Exception {
+    private $query;
+    private $params;
+    
+    /**
+     * Constructor
+     * @param string $message Error message
+     * @param string $query SQL query
+     * @param array $params Query parameters
+     * @param int $code Error code
+     * @param Exception $previous Previous exception
+     */
+    public function __construct($message, $query = '', $params = [], $code = 0, Exception $previous = null) {
+        parent::__construct($message, $code, $previous);
+        $this->query = $query;
+        $this->params = $params;
+    }
+    
+    /**
+     * Get SQL query
+     * @return string
+     */
+    public function getQuery() {
+        return $this->query;
+    }
+    
+    /**
+     * Get query parameters
+     * @return array
+     */
+    public function getParams() {
+        return $this->params;
+    }
+}
+
+/**
+ * Get database connection
+ * @return PDO
+ */
+function getDB() {
+    return DatabaseConnection::getInstance()->getConnection();
+}
+
+/**
+ * Create query builder
+ * @param string $table Table name
+ * @return QueryBuilder
+ */
+function query($table) {
+    return new QueryBuilder(getDB(), $table);
+}
+
+/**
+ * Execute raw query
+ * @param string $sql SQL query
+ * @param array $params Query parameters
+ * @return PDOStatement
+ */
+function rawQuery($sql, $params = []) {
+    try {
+        $stmt = getDB()->prepare($sql);
+        $stmt->execute($params);
+        return $stmt;
+    } catch (PDOException $e) {
+        throw new DatabaseException($e->getMessage(), $sql, $params);
+    }
+}
+
+/**
+ * Begin transaction
+ * @return bool
+ */
+function beginTransaction() {
+    return getDB()->beginTransaction();
+}
+
+/**
+ * Commit transaction
+ * @return bool
+ */
+function commit() {
+    return getDB()->commit();
+}
+
+/**
+ * Rollback transaction
+ * @return bool
+ */
+function rollback() {
+    return getDB()->rollback();
+}
+
+/**
+ * Get last insert ID
+ * @return string
+ */
+function lastInsertId() {
+    return getDB()->lastInsertId();
+}
+
+/**
+ * Check if table exists
+ * @param string $tableName Table name
+ * @return bool
+ */
+function tableExists($tableName) {
+    $sql = "SHOW TABLES LIKE ?";
+    $stmt = rawQuery($sql, [$tableName]);
+    return $stmt->rowCount() > 0;
+}
+
+/**
+ * Get table columns
+ * @param string $tableName Table name
+ * @return array
+ */
+function getTableColumns($tableName) {
+    $sql = "DESCRIBE {$tableName}";
+    $stmt = rawQuery($sql);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Backup database
+ * @param string $backupPath Backup file path
+ * @return bool
+ */
+function backupDatabase($backupPath = null) {
+    if (!DB_BACKUP_ENABLED) {
+        return false;
+    }
+    
+    if ($backupPath === null) {
+        $backupPath = DB_BACKUP_PATH . 'backup_' . date('Y-m-d_H-i-s') . '.sql';
+    }
+    
+    // Create backup directory if not exists
+    if (!is_dir(DB_BACKUP_PATH)) {
+        mkdir(DB_BACKUP_PATH, 0755, true);
+    }
+    
+    // Use mysqldump command
+    $command = sprintf(
+        'mysqldump --single-transaction --routines --triggers -h%s -u%s -p%s %s > %s',
+        DB_HOST,
+        DB_USER,
+        DB_PASS,
+        DB_NAME,
+        $backupPath
+    );
+    
+    exec($command, $output, $returnCode);
+    
+    return $returnCode === 0;
+}
+
+/**
+ * Clean old backups
+ * @param int $retentionDays Retention period in days
+ * @return int Number of files deleted
+ */
+function cleanOldBackups($retentionDays = DB_BACKUP_RETENTION) {
+    if (!is_dir(DB_BACKUP_PATH)) {
+        return 0;
+    }
+    
+    $files = glob(DB_BACKUP_PATH . '*.sql');
+    $deletedCount = 0;
+    $cutoffTime = time() - ($retentionDays * 24 * 60 * 60);
+    
+    foreach ($files as $file) {
+        if (filemtime($file) < $cutoffTime) {
+            unlink($file);
+            $deletedCount++;
+        }
+    }
+    
+    return $deletedCount;
+}
+?>
+
+[Continue for remaining 35 pages with detailed code sections...]
+
+================================================================================
+PAGE 40: APPENDIX - FUNCTION REFERENCE
+================================================================================
+
+FUNCTION REFERENCE GUIDE
+========================
+
+Authentication Functions:
+------------------------
+- isStudent() - Check if current user is a student
+- isAdmin() - Check if current user is an admin
+- requireLogin() - Require user to be logged in
+- redirect($url) - Redirect to specified URL
+- logout() - Logout current user
+
+Database Functions:
+------------------
+- getDB() - Get database connection
+- query($table) - Create query builder
+- rawQuery($sql, $params) - Execute raw SQL query
+- beginTransaction() - Begin database transaction
+- commit() - Commit transaction
+- rollback() - Rollback transaction
+- lastInsertId() - Get last inserted ID
+- tableExists($tableName) - Check if table exists
+- getTableColumns($tableName) - Get table columns
+- backupDatabase($path) - Backup database
+- cleanOldBackups($days) - Clean old backup files
+
+Grading Functions:
+-----------------
+- getOverallRating($examRating) - Get overall rating from exam rating
+- hasPassed($examRating) - Check if student passed
+- getGradePoint($rating) - Get grade point for rating
+- getRecommendation($rating) - Get recommendation message
+- transmuteScore($rawScore, $maxScore) - Transmute raw score to percentage
+- calculateWeightedScore($score, $weight) - Calculate weighted score
+- calculatePercentage($rawScore, $maxScore) - Calculate percentage
+- isValidScore($score, $maxScore) - Validate score range
+- getRatingColor($rating) - Get Bootstrap color for rating
+- getTransmutationTable($maxScore) - Get transmutation table
+
+Security Functions:
+------------------
+- sanitizeInput($input) - Sanitize user input
+- validateEmail($email) - Validate email format
+- generateCSRFToken() - Generate CSRF token
+- validateCSRFToken($token) - Validate CSRF token
+- hashPassword($password) - Hash password
+- verifyPassword($password, $hash) - Verify password
+- generateRandomString($length) - Generate random string
+
+File Functions:
+---------------
+- uploadFile($file, $path) - Upload file
+- validateFileType($file, $allowedTypes) - Validate file type
+- validateFileSize($file, $maxSize) - Validate file size
+- createThumbnail($source, $dest, $width, $height) - Create thumbnail
+- deleteFile($path) - Delete file
+- getFileExtension($filename) - Get file extension
+
+Email Functions:
+---------------
+- sendEmail($to, $subject, $message, $headers) - Send email
+- sendPasswordResetEmail($email, $token) - Send password reset email
+- sendVerificationEmail($email, $token) - Send verification email
+- sendNotificationEmail($to, $type, $data) - Send notification email
+
+Utility Functions:
+-----------------
+- showAlert($message, $type) - Show alert message
+- formatDate($date, $format) - Format date
+- formatTime($time, $format) - Format time
+- formatCurrency($amount, $currency) - Format currency
+- generateSlug($text) - Generate URL slug
+- truncateText($text, $length) - Truncate text
+- paginate($total, $perPage, $currentPage) - Generate pagination
+- generateToken($length) - Generate secure token
+- logError($message, $context) - Log error message
+- logAccess($message, $context) - Log access message
+
+CONSTANTS REFERENCE
+===================
+
+Site Constants:
+---------------
+- SITE_NAME - Site name
+- SITE_URL - Site URL
+- ADMIN_EMAIL - Admin email
+- SUPPORT_EMAIL - Support email
+
+Database Constants:
+------------------
+- DB_HOST - Database host
+- DB_NAME - Database name
+- DB_USER - Database user
+- DB_PASS - Database password
+- DB_CHARSET - Database charset
+- DB_COLLATE - Database collation
+
+Security Constants:
+-------------------
+- PASSWORD_MIN_LENGTH - Minimum password length
+- PASSWORD_MAX_LENGTH - Maximum password length
+- SESSION_LIFETIME - Session lifetime in seconds
+- MAX_LOGIN_ATTEMPTS - Maximum login attempts
+- LOGIN_LOCKOUT_TIME - Login lockout time
+
+Upload Constants:
+-----------------
+- MAX_FILE_SIZE - Maximum file size in bytes
+- ALLOWED_FILE_TYPES - Allowed file types array
+- UPLOAD_PATH - Upload directory path
+- THUMBNAIL_PATH - Thumbnail directory path
+
+Grading Constants:
+------------------
+- PASSING_THRESHOLD - Passing threshold percentage
+- RATING_EXCELLENT_MIN - Excellent rating minimum
+- RATING_VERY_GOOD_MIN - Very good rating minimum
+- RATING_PASSED_MIN - Passed rating minimum
+- RATING_CONDITIONAL_MIN - Conditional rating minimum
+- MAX_GEN_INFO_SCORE - General info max score
+- MAX_FILIPINO_SCORE - Filipino max score
+- MAX_ENGLISH_SCORE - English max score
+- MAX_SCIENCE_SCORE - Science max score
+- MAX_MATH_SCORE - Math max score
+- TOTAL_MAX_SCORE - Total maximum score
+- EXAM_WEIGHT - Exam weight factor
+- INTERVIEW_WEIGHT - Interview weight factor
+- GWA_WEIGHT - GWA weight factor
+
+Email Constants:
+---------------
+- SMTP_HOST - SMTP server host
+- SMTP_PORT - SMTP server port
+- SMTP_USERNAME - SMTP username
+- SMTP_PASSWORD - SMTP password
+- SMTP_ENCRYPTION - SMTP encryption type
+- EMAIL_FROM - From email address
+- EMAIL_FROM_NAME - From email name
+
+System Constants:
+-----------------
+- TIMEZONE - System timezone
+- DEFAULT_DATE_FORMAT - Default date format
+- DEFAULT_TIME_FORMAT - Default time format
+- DEFAULT_DATETIME_FORMAT - Default datetime format
+- ITEMS_PER_PAGE - Default items per page
+- MAX_ITEMS_PER_PAGE - Maximum items per page
+- CACHE_ENABLED - Cache enabled flag
+- CACHE_LIFETIME - Cache lifetime
+- DEBUG_MODE - Debug mode flag
+- ERROR_LOG_PATH - Error log file path
+- ACCESS_LOG_PATH - Access log file path
+- BACKUP_ENABLED - Backup enabled flag
+- BACKUP_PATH - Backup directory path
+- BACKUP_RETENTION_DAYS - Backup retention days
+- MAINTENANCE_MODE - Maintenance mode flag
+- RATE_LIMIT_ENABLED - Rate limiting enabled
+- API_VERSION - API version
+- API_RATE_LIMIT - API rate limit
+- API_TIMEOUT - API timeout
+
+END OF DOCUMENTATION
+================================================================================

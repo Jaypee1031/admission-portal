@@ -1,0 +1,182 @@
+University Admission Portal - Website Testing Feedback Form
+
+Test Information:
+Date: _________________
+Tester Name: _________________
+Device Type: _________________ (Desktop/Laptop/Mobile/Tablet)
+Browser: _________________
+Operating System: _________________
+Network: _________________ (WiFi/Mobile Data)
+
+Website Access:
+URL Used: _________________
+Connection Status: _________________ (Success/Issues)
+
+SECTION 1: GENERAL IMPRESSIONS
+Rate the overall experience (1-5, where 5 is excellent):
+Overall Design: ___/5
+Ease of Navigation: ___/5
+Page Loading Speed: ___/5
+Mobile Responsiveness: ___/5
+
+Comments:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+SECTION 2: STUDENT REGISTRATION PROCESS
+Rate each step (1-5, where 5 is excellent):
+Registration Form: ___/5
+Document Upload: ___/5
+Form Validation: ___/5
+Success Confirmation: ___/5
+
+Issues Encountered:
+□ Form fields not working properly
+□ File upload problems
+□ Validation errors
+□ Slow loading
+□ Other: _________________
+
+Comments:
+_________________________________________________
+_________________________________________________
+
+SECTION 3: ADMIN FUNCTIONALITY
+Rate each feature (1-5, where 5 is excellent):
+Login Process: ___/5
+Dashboard Interface: ___/5
+Student Management: ___/5
+Document Review: ___/5
+PDF Generation: ___/5
+Test Permit Management: ___/5
+Test Results Management: ___/5
+
+Issues Encountered:
+□ Login problems
+□ Dashboard errors
+□ File download issues
+□ PDF generation problems
+□ Data display errors
+□ Other: _________________
+
+Comments:
+_________________________________________________
+_________________________________________________
+
+SECTION 4: SECURITY & PERFORMANCE
+Rate security features (1-5, where 5 is excellent):
+HTTPS Connection: ___/5
+Session Management: ___/5
+Data Protection: ___/5
+Access Control: ___/5
+
+Performance Issues:
+□ Slow page loading
+□ Timeout errors
+□ Connection drops
+□ Memory issues
+□ Other: _________________
+
+Comments:
+_________________________________________________
+_________________________________________________
+
+SECTION 5: MOBILE EXPERIENCE
+Rate mobile functionality (1-5, where 5 is excellent):
+Mobile Layout: ___/5
+Touch Navigation: ___/5
+Form Input: ___/5
+File Upload: ___/5
+PDF Viewing: ___/5
+
+Mobile-Specific Issues:
+□ Layout problems
+□ Text too small
+□ Buttons hard to tap
+□ Forms difficult to fill
+□ Other: _________________
+
+Comments:
+_________________________________________________
+_________________________________________________
+
+SECTION 6: SPECIFIC FEATURES TESTING
+Test Results (Pass/Fail/Not Tested):
+□ Student Registration: ___/___/___
+□ Document Upload: ___/___/___
+□ F2 Form Generation: ___/___/___
+□ Test Permit Generation: ___/___/___
+□ Test Results Entry: ___/___/___
+□ PDF Download: ___/___/___
+□ Admin Dashboard: ___/___/___
+□ Student Dashboard: ___/___/___
+□ Login/Logout: ___/___/___
+□ Password Reset: ___/___/___
+
+Feature-Specific Comments:
+_________________________________________________
+_________________________________________________
+
+SECTION 7: BUG REPORTS
+Bug #1:
+Description: _________________________________________________
+Steps to Reproduce: _________________________________________________
+Expected Result: _________________________________________________
+Actual Result: _________________________________________________
+Severity: □ Critical □ High □ Medium □ Low
+
+Bug #2:
+Description: _________________________________________________
+Steps to Reproduce: _________________________________________________
+Expected Result: _________________________________________________
+Actual Result: _________________________________________________
+Severity: □ Critical □ High □ Medium □ Low
+
+Bug #3:
+Description: _________________________________________________
+Steps to Reproduce: _________________________________________________
+Expected Result: _________________________________________________
+Actual Result: _________________________________________________
+Severity: □ Critical □ High □ Medium □ Low
+
+SECTION 8: SUGGESTIONS FOR IMPROVEMENT
+User Experience Improvements:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+Feature Requests:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+Design Suggestions:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+SECTION 9: OVERALL ASSESSMENT
+Would you recommend this system to other users?
+□ Yes □ No □ Maybe
+
+Reason: _________________________________________________
+_________________________________________________
+
+What is the most positive aspect of the system?
+_________________________________________________
+_________________________________________________
+
+What needs the most improvement?
+_________________________________________________
+_________________________________________________
+
+Additional Comments:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+Tester Signature: _________________ Date: _________________
+
+Thank you for your valuable feedback!

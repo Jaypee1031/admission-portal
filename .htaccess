@@ -1,0 +1,14 @@
+# .htaccess disabled
+RewriteEngine On
+ 
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+ 
+# Clean URLs: "/path" -> "/path.php" when such a PHP file exists
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+ 
+# Custom 404 page using clean URL
+ErrorDocument 404 /404

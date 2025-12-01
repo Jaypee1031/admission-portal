@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admission Portal - Website Testing Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .section h2 {
+            color: #1976d2;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .rating {
+            margin: 10px 0;
+        }
+        .checkbox-list {
+            margin: 10px 0;
+        }
+        .checkbox-list input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .comment-box {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            resize: vertical;
+        }
+        .signature-line {
+            border-bottom: 1px solid #333;
+            width: 200px;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .print-button {
+            background: #1976d2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .print-button:hover {
+            background: #1565c0;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>University Admission Portal</h1>
+        <h2>Website Testing Feedback Form</h2>
+    </div>
+
+    <button class="print-button" onclick="window.print()">🖨️ Print Form</button>
+
+    <div class="section">
+        <h2>Test Information</h2>
+        <p><strong>Date:</strong> <span class="signature-line"></span></p>
+        <p><strong>Tester Name:</strong> <span class="signature-line"></span></p>
+        <p><strong>Device Type:</strong> <span class="signature-line"></span> (Desktop/Laptop/Mobile/Tablet)</p>
+        <p><strong>Browser:</strong> <span class="signature-line"></span></p>
+        <p><strong>Operating System:</strong> <span class="signature-line"></span></p>
+        <p><strong>Network:</strong> <span class="signature-line"></span> (WiFi/Mobile Data)</p>
+        
+        <h3>Website Access:</h3>
+        <p><strong>URL Used:</strong> <span class="signature-line"></span></p>
+        <p><strong>Connection Status:</strong> <span class="signature-line"></span> (Success/Issues)</p>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 1: GENERAL IMPRESSIONS</h2>
+        <p>Rate the overall experience (1-5, where 5 is excellent):</p>
+        <div class="rating">
+            <p>Overall Design: ___/5</p>
+            <p>Ease of Navigation: ___/5</p>
+            <p>Page Loading Speed: ___/5</p>
+            <p>Mobile Responsiveness: ___/5</p>
+        </div>
+        <p><strong>Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 2: STUDENT REGISTRATION PROCESS</h2>
+        <p>Rate each step (1-5, where 5 is excellent):</p>
+        <div class="rating">
+            <p>Registration Form: ___/5</p>
+            <p>Document Upload: ___/5</p>
+            <p>Form Validation: ___/5</p>
+            <p>Success Confirmation: ___/5</p>
+        </div>
+        
+        <p><strong>Issues Encountered:</strong></p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Form fields not working properly</label><br>
+            <label><input type="checkbox"> File upload problems</label><br>
+            <label><input type="checkbox"> Validation errors</label><br>
+            <label><input type="checkbox"> Slow loading</label><br>
+            <label><input type="checkbox"> Other: <span class="signature-line"></span></label>
+        </div>
+        
+        <p><strong>Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 3: ADMIN FUNCTIONALITY</h2>
+        <p>Rate each feature (1-5, where 5 is excellent):</p>
+        <div class="rating">
+            <p>Login Process: ___/5</p>
+            <p>Dashboard Interface: ___/5</p>
+            <p>Student Management: ___/5</p>
+            <p>Document Review: ___/5</p>
+            <p>PDF Generation: ___/5</p>
+            <p>Test Permit Management: ___/5</p>
+            <p>Test Results Management: ___/5</p>
+        </div>
+        
+        <p><strong>Issues Encountered:</strong></p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Login problems</label><br>
+            <label><input type="checkbox"> Dashboard errors</label><br>
+            <label><input type="checkbox"> File download issues</label><br>
+            <label><input type="checkbox"> PDF generation problems</label><br>
+            <label><input type="checkbox"> Data display errors</label><br>
+            <label><input type="checkbox"> Other: <span class="signature-line"></span></label>
+        </div>
+        
+        <p><strong>Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 4: SECURITY & PERFORMANCE</h2>
+        <p>Rate security features (1-5, where 5 is excellent):</p>
+        <div class="rating">
+            <p>HTTPS Connection: ___/5</p>
+            <p>Session Management: ___/5</p>
+            <p>Data Protection: ___/5</p>
+            <p>Access Control: ___/5</p>
+        </div>
+        
+        <p><strong>Performance Issues:</strong></p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Slow page loading</label><br>
+            <label><input type="checkbox"> Timeout errors</label><br>
+            <label><input type="checkbox"> Connection drops</label><br>
+            <label><input type="checkbox"> Memory issues</label><br>
+            <label><input type="checkbox"> Other: <span class="signature-line"></span></label>
+        </div>
+        
+        <p><strong>Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 5: MOBILE EXPERIENCE</h2>
+        <p>Rate mobile functionality (1-5, where 5 is excellent):</p>
+        <div class="rating">
+            <p>Mobile Layout: ___/5</p>
+            <p>Touch Navigation: ___/5</p>
+            <p>Form Input: ___/5</p>
+            <p>File Upload: ___/5</p>
+            <p>PDF Viewing: ___/5</p>
+        </div>
+        
+        <p><strong>Mobile-Specific Issues:</strong></p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Layout problems</label><br>
+            <label><input type="checkbox"> Text too small</label><br>
+            <label><input type="checkbox"> Buttons hard to tap</label><br>
+            <label><input type="checkbox"> Forms difficult to fill</label><br>
+            <label><input type="checkbox"> Other: <span class="signature-line"></span></label>
+        </div>
+        
+        <p><strong>Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 6: SPECIFIC FEATURES TESTING</h2>
+        <p>Test Results (Pass/Fail/Not Tested):</p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Student Registration: ___/___/___</label><br>
+            <label><input type="checkbox"> Document Upload: ___/___/___</label><br>
+            <label><input type="checkbox"> F2 Form Generation: ___/___/___</label><br>
+            <label><input type="checkbox"> Test Permit Generation: ___/___/___</label><br>
+            <label><input type="checkbox"> Test Results Entry: ___/___/___</label><br>
+            <label><input type="checkbox"> PDF Download: ___/___/___</label><br>
+            <label><input type="checkbox"> Admin Dashboard: ___/___/___</label><br>
+            <label><input type="checkbox"> Student Dashboard: ___/___/___</label><br>
+            <label><input type="checkbox"> Login/Logout: ___/___/___</label><br>
+            <label><input type="checkbox"> Password Reset: ___/___/___</label>
+        </div>
+        
+        <p><strong>Feature-Specific Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 7: BUG REPORTS</h2>
+        
+        <h3>Bug #1:</h3>
+        <p><strong>Description:</strong> <span class="signature-line"></span></p>
+        <p><strong>Steps to Reproduce:</strong> <span class="signature-line"></span></p>
+        <p><strong>Expected Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Actual Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Severity:</strong> 
+            <label><input type="checkbox"> Critical</label>
+            <label><input type="checkbox"> High</label>
+            <label><input type="checkbox"> Medium</label>
+            <label><input type="checkbox"> Low</label>
+        </p>
+        
+        <h3>Bug #2:</h3>
+        <p><strong>Description:</strong> <span class="signature-line"></span></p>
+        <p><strong>Steps to Reproduce:</strong> <span class="signature-line"></span></p>
+        <p><strong>Expected Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Actual Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Severity:</strong> 
+            <label><input type="checkbox"> Critical</label>
+            <label><input type="checkbox"> High</label>
+            <label><input type="checkbox"> Medium</label>
+            <label><input type="checkbox"> Low</label>
+        </p>
+        
+        <h3>Bug #3:</h3>
+        <p><strong>Description:</strong> <span class="signature-line"></span></p>
+        <p><strong>Steps to Reproduce:</strong> <span class="signature-line"></span></p>
+        <p><strong>Expected Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Actual Result:</strong> <span class="signature-line"></span></p>
+        <p><strong>Severity:</strong> 
+            <label><input type="checkbox"> Critical</label>
+            <label><input type="checkbox"> High</label>
+            <label><input type="checkbox"> Medium</label>
+            <label><input type="checkbox"> Low</label>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 8: SUGGESTIONS FOR IMPROVEMENT</h2>
+        
+        <p><strong>User Experience Improvements:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your suggestions here..."></textarea>
+        
+        <p><strong>Feature Requests:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your feature requests here..."></textarea>
+        
+        <p><strong>Design Suggestions:</strong></p>
+        <textarea class="comment-box" placeholder="Enter your design suggestions here..."></textarea>
+    </div>
+
+    <div class="section">
+        <h2>SECTION 9: OVERALL ASSESSMENT</h2>
+        
+        <p><strong>Would you recommend this system to other users?</strong></p>
+        <div class="checkbox-list">
+            <label><input type="checkbox"> Yes</label>
+            <label><input type="checkbox"> No</label>
+            <label><input type="checkbox"> Maybe</label>
+        </div>
+        
+        <p><strong>Reason:</strong> <span class="signature-line"></span></p>
+        
+        <p><strong>What is the most positive aspect of the system?</strong></p>
+        <textarea class="comment-box" placeholder="Enter your response here..."></textarea>
+        
+        <p><strong>What needs the most improvement?</strong></p>
+        <textarea class="comment-box" placeholder="Enter your response here..."></textarea>
+        
+        <p><strong>Additional Comments:</strong></p>
+        <textarea class="comment-box" placeholder="Enter any additional comments here..."></textarea>
+    </div>
+
+    <div class="section">
+        <p><strong>Tester Signature:</strong> <span class="signature-line"></span> <strong>Date:</strong> <span class="signature-line"></span></p>
+        <p style="text-align: center; font-style: italic; margin-top: 30px;">Thank you for your valuable feedback!</p>
+    </div>
+
+    <script>
+        // Add current date automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toLocaleDateString();
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                if (!input.value) {
+                    input.value = today;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

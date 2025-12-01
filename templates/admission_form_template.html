@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application for Pre-Admission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            margin: 20px;
+            background-color: white;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+        }
+        
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+        }
+        
+        .header-section {
+            background-color: white;
+        }
+        
+        .section-header {
+            background-color: #9acd32;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .logo-cell {
+            width: 100px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .title-cell {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        
+        .id-picture-cell {
+            width: 120px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .id-picture-box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+        
+        .checkbox-row {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .checkbox-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            width: 30%;
+        }
+        
+        .field-value {
+            width: 70%;
+        }
+        
+        .ethnic-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .ethnic-checkbox {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .ethnic-checkbox input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        .requirements-table {
+            width: 100%;
+        }
+        
+        .requirements-table td {
+            padding: 5px;
+            border: 1px solid #000;
+        }
+        
+        .requirements-table .checkbox-cell {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .requirements-table .item-cell {
+            width: auto;
+        }
+        
+        .footer {
+            text-align: left;
+            padding: 10px;
+            font-size: 10px;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+            }
+            .form-container {
+                max-width: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Header Section -->
+        <table class="header-section">
+            <tr>
+                <td class="logo-cell">
+                    <img src="qsu-Logo.png" width="80" alt="QSU Logo">
+                </td>
+                <td class="title-cell">
+                    <div style="font-size: 16px; font-weight: bold; line-height: 1.2;">
+                        QUIRINO STATE UNIVERSITY<br>
+                        SAS - Office of Guidance, Counseling & Admission
+                    </div>
+                    <div style="font-size: 14px; font-weight: bold; margin-top: 10px;">
+                        APPLICATION FOR PRE–ADMISSION FORM<br>
+                        (For New Students - Undergraduate)
+                    </div>
+                </td>
+                <td class="id-picture-cell">
+                    <div class="id-picture-box">
+                        <span style="font-size: 10px;">1x1</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Options Section -->
+        <table>
+            <tr>
+                <td class="checkbox-row" colspan="3">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="incoming_freshmen" name="applicant_type" value="Incoming Freshmen">
+                        <label for="incoming_freshmen">Incoming Freshmen</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="transferee" name="applicant_type" value="Transferee">
+                        <label for="transferee">Transferee</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="second_courser" name="applicant_type" value="Second Courser">
+                        <label for="second_courser">Second Courser</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="foreign_students" name="applicant_type" value="Foreign Students">
+                        <label for="foreign_students">Foreign Students</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Personal Information Section -->
+        <table>
+            <tr>
+                <td class="section-header" colspan="3">PERSONAL INFORMATION</td>
+            </tr>
+            <tr>
+                <td class="field-label">Name (Last, First, Middle):</td>
+                <td class="field-value" colspan="2">
+                    <input type="text" name="full_name" style="width: 100%; border: none; background: transparent;" placeholder="Enter full name">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Name Extension:</td>
+                <td class="field-value" colspan="2">
+                    <input type="text" name="name_extension" style="width: 100%; border: none; background: transparent;" placeholder="Jr., Sr., III, etc.">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Sex:</td>
+                <td class="field-value">
+                    <input type="radio" name="sex" value="Male" id="sex_male">
+                    <label for="sex_male">Male</label>
+                    <input type="radio" name="sex" value="Female" id="sex_female">
+                    <label for="sex_female">Female</label>
+                </td>
+                <td class="field-label">Gender:</td>
+                <td class="field-value">
+                    <input type="radio" name="gender" value="Masculine" id="gender_masculine">
+                    <label for="gender_masculine">Masculine</label>
+                    <input type="radio" name="gender" value="Feminine" id="gender_feminine">
+                    <label for="gender_feminine">Feminine</label>
+                    <input type="radio" name="gender" value="LGBTQ+" id="gender_lgbtq">
+                    <label for="gender_lgbtq">LGBTQ+</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Civil Status:</td>
+                <td class="field-value">
+                    <input type="radio" name="civil_status" value="Single" id="civil_single">
+                    <label for="civil_single">Single</label>
+                    <input type="radio" name="civil_status" value="Married" id="civil_married">
+                    <label for="civil_married">Married</label>
+                    <input type="radio" name="civil_status" value="Widowed" id="civil_widowed">
+                    <label for="civil_widowed">Widowed</label>
+                    <input type="radio" name="civil_status" value="Separated" id="civil_separated">
+                    <label for="civil_separated">Separated</label>
+                </td>
+                <td class="field-label">Name of Spouse (if married):</td>
+                <td class="field-value">
+                    <input type="text" name="spouse_name" style="width: 100%; border: none; background: transparent;" placeholder="Enter spouse name">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Age:</td>
+                <td class="field-value">
+                    <input type="text" name="age" style="width: 50px; border: none; background: transparent;" placeholder="Age">
+                </td>
+                <td class="field-label">Date of Birth (mm/dd/yyyy):</td>
+                <td class="field-value">
+                    <input type="text" name="date_of_birth" style="width: 100%; border: none; background: transparent;" placeholder="MM/DD/YYYY">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Place of Birth:</td>
+                <td class="field-value" colspan="3">
+                    <input type="text" name="place_of_birth" style="width: 100%; border: none; background: transparent;" placeholder="Enter place of birth">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">PWD:</td>
+                <td class="field-value">
+                    <input type="radio" name="pwd" value="No" id="pwd_no">
+                    <label for="pwd_no">No</label>
+                    <input type="radio" name="pwd" value="Yes" id="pwd_yes">
+                    <label for="pwd_yes">Yes</label>
+                </td>
+                <td class="field-label">Disability:</td>
+                <td class="field-value">
+                    <input type="text" name="disability" style="width: 100%; border: none; background: transparent;" placeholder="Specify disability">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Ethnic Affiliation:</td>
+                <td class="field-value" colspan="3">
+                    <div class="ethnic-checkboxes">
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Ibaloi" id="ethnic_ibaloi">
+                            <label for="ethnic_ibaloi">Ibaloi</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Kankana-ey" id="ethnic_kankanaey">
+                            <label for="ethnic_kankanaey">Kankana-ey</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Kalanguya" id="ethnic_kalanguya">
+                            <label for="ethnic_kalanguya">Kalanguya</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Ifugao" id="ethnic_ifugao">
+                            <label for="ethnic_ifugao">Ifugao</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Ilongot" id="ethnic_ilongot">
+                            <label for="ethnic_ilongot">Ilongot</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="checkbox" name="ethnic" value="Others" id="ethnic_others">
+                            <label for="ethnic_others">Others</label>
+                        </div>
+                        <div class="ethnic-checkbox">
+                            <input type="text" name="ethnic_others_specify" style="width: 100px; border: 1px solid #ccc;" placeholder="Specify">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Home Address:</td>
+                <td class="field-value" colspan="3">
+                    <input type="text" name="home_address" style="width: 100%; border: none; background: transparent;" placeholder="Enter complete home address">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Mobile Number:</td>
+                <td class="field-value">
+                    <input type="text" name="mobile_number" style="width: 100%; border: none; background: transparent;" placeholder="Enter mobile number">
+                </td>
+                <td class="field-label">Email Address:</td>
+                <td class="field-value">
+                    <input type="email" name="email" style="width: 100%; border: none; background: transparent;" placeholder="Enter email address">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Father's Name:</td>
+                <td class="field-value">
+                    <input type="text" name="father_name" style="width: 100%; border: none; background: transparent;" placeholder="Enter father's name">
+                </td>
+                <td class="field-label">Occupation:</td>
+                <td class="field-value">
+                    <input type="text" name="father_occupation" style="width: 100%; border: none; background: transparent;" placeholder="Enter occupation">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Contact #:</td>
+                <td class="field-value">
+                    <input type="text" name="father_contact" style="width: 100%; border: none; background: transparent;" placeholder="Enter contact number">
+                </td>
+                <td class="field-label">Mother's Maiden Name:</td>
+                <td class="field-value">
+                    <input type="text" name="mother_maiden_name" style="width: 100%; border: none; background: transparent;" placeholder="Enter mother's maiden name">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Occupation:</td>
+                <td class="field-value">
+                    <input type="text" name="mother_occupation" style="width: 100%; border: none; background: transparent;" placeholder="Enter occupation">
+                </td>
+                <td class="field-label">Contact #:</td>
+                <td class="field-value">
+                    <input type="text" name="mother_contact" style="width: 100%; border: none; background: transparent;" placeholder="Enter contact number">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Guardian's Name:</td>
+                <td class="field-value">
+                    <input type="text" name="guardian_name" style="width: 100%; border: none; background: transparent;" placeholder="Enter guardian's name">
+                </td>
+                <td class="field-label">Occupation:</td>
+                <td class="field-value">
+                    <input type="text" name="guardian_occupation" style="width: 100%; border: none; background: transparent;" placeholder="Enter occupation">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Contact #:</td>
+                <td class="field-value" colspan="3">
+                    <input type="text" name="guardian_contact" style="width: 200px; border: none; background: transparent;" placeholder="Enter contact number">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Educational Background Section -->
+        <table>
+            <tr>
+                <td class="section-header" colspan="4">EDUCATIONAL BACKGROUND (Please do not Abbreviate/ Spell-out)</td>
+            </tr>
+            <tr>
+                <td class="field-label">School/ University Last Attended:</td>
+                <td class="field-value">
+                    <input type="text" name="school_last_attended" style="width: 100%; border: none; background: transparent;" placeholder="Enter school name">
+                </td>
+                <td class="field-label">Year Last Attended (for transferee):</td>
+                <td class="field-value">
+                    <input type="text" name="year_last_attended" style="width: 100%; border: none; background: transparent;" placeholder="YYYY">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Year Graduated (for Incoming Freshman):</td>
+                <td class="field-value">
+                    <input type="text" name="year_graduated" style="width: 100%; border: none; background: transparent;" placeholder="YYYY">
+                </td>
+                <td class="field-label">School Address:</td>
+                <td class="field-value">
+                    <input type="text" name="school_address" style="width: 100%; border: none; background: transparent;" placeholder="Enter school address">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Program/ Strand Taken:</td>
+                <td class="field-value" colspan="3">
+                    <input type="text" name="program_taken" style="width: 100%; border: none; background: transparent;" placeholder="Enter program/strand taken">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Course Intended to Take Section -->
+        <table>
+            <tr>
+                <td class="section-header" colspan="3">COURSE INTENDED TO TAKE</td>
+            </tr>
+            <tr>
+                <td class="field-label">1st Preference:</td>
+                <td class="field-label">2nd Preference:</td>
+                <td class="field-label">3rd Preference:</td>
+            </tr>
+            <tr>
+                <td class="field-value">
+                    <input type="text" name="course_1st_preference" style="width: 100%; border: none; background: transparent;" placeholder="Enter 1st preference">
+                </td>
+                <td class="field-value">
+                    <input type="text" name="course_2nd_preference" style="width: 100%; border: none; background: transparent;" placeholder="Enter 2nd preference">
+                </td>
+                <td class="field-value">
+                    <input type="text" name="course_3rd_preference" style="width: 100%; border: none; background: transparent;" placeholder="Enter 3rd preference">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Documentary Requirements Section -->
+        <table>
+            <tr>
+                <td class="section-header" colspan="2">DOCUMENTARY REQUIREMENTS FOR PRE - ADMISSION</td>
+            </tr>
+            <tr>
+                <td style="width: 50%; vertical-align: top;">
+                    <table class="requirements-table">
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Original Form 138 (Report Card)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Original Form 137 (Permanent Record)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Certificate of Good Moral Character</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Medical Certificate</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">2x2 ID Picture (2 copies)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Birth Certificate (PSA)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Barangay Clearance</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Police Clearance</td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 50%; vertical-align: top;">
+                    <table class="requirements-table">
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Original Transcript of Records (TOR)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Certificate of Good Moral Character</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Medical Certificate</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">2x2 ID Picture (2 copies)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Birth Certificate (PSA)</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Barangay Clearance</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Police Clearance</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">□</td>
+                            <td class="item-cell">Honorable Dismissal</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- To be filled out by the Admission Officer Section -->
+        <table>
+            <tr>
+                <td class="section-header" colspan="2">To be filled out by the Admission Officer</td>
+            </tr>
+            <tr>
+                <td class="field-label">Received by:</td>
+                <td class="field-value">
+                    <input type="text" name="received_by" style="width: 100%; border: none; background: transparent;" placeholder="Enter name">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Date of Received:</td>
+                <td class="field-value">
+                    <input type="text" name="date_received" style="width: 100%; border: none; background: transparent;" placeholder="MM/DD/YYYY">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Name and Signature of OGCA Personnel:</td>
+                <td class="field-value">
+                    <input type="text" name="ogca_personnel" style="width: 100%; border: none; background: transparent;" placeholder="Enter name and signature">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Client Signature Section -->
+        <table>
+            <tr>
+                <td class="field-label">Client Signature Over Printed Name:</td>
+                <td class="field-value">
+                    <input type="text" name="client_signature" style="width: 100%; border: none; background: transparent;" placeholder="Enter signature">
+                </td>
+            </tr>
+            <tr>
+                <td class="field-label">Date Signed:</td>
+                <td class="field-value">
+                    <input type="text" name="date_signed" style="width: 100%; border: none; background: transparent;" placeholder="MM/DD/YYYY">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Footer -->
+        <div class="footer">
+            QSU-OGCA-F001-A    Rev. 03 (Feb. 03, 2025)
+        </div>
+    </div>
+</body>
+</html>
